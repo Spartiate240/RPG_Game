@@ -1,0 +1,25 @@
+AFAIRE
+
+
+Drops d'ennemis, a faire avec Inventory, ils droppent UN SEUL de leurs trucs avec une proba x
+system de gain d'xp, qui change en fonction du niveau act et adv, dc à faire dans la classe Joueur dans la méthode battle
+
+Possibilité de ne pas faire que du combat (magasin, acces inventaire)
+
+
+Ajuster l'affichage terminal
+
+
+
+au moins 1 de chaque type d'armure
+    ajouter une armure aux armes?
+    + 1 lance
+    + 1 dague
+    + shield
+    + warhammer
+    
+    
+    
+    
+    
+Level: dictionnaire avec lvl -> xp requis pour passer au suivant

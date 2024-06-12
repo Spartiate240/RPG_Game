@@ -1,0 +1,7 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/home/pierre/Documents/Privé/ProjetJeuRPG/lib/junit-4.jar"
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
+}
