@@ -9,7 +9,7 @@ import items.*;
 
 // Do  an array of objects with: name, description, price, cost and quantity
 public class Inventory {
-    private List<Item> items;
+    protected List<Item> items;
 
     public Inventory() {
         this.items = new ArrayList<>();
@@ -48,7 +48,7 @@ public class Inventory {
     }
 
 
-    public List<Item> getItems() {
+    public static List<Item> getItems() {
         return Collections.unmodifiableList(items);
     }
 

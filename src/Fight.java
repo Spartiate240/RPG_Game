@@ -26,7 +26,7 @@ public class Fight {
             fight.fighting(player, mob);
 
             // Check if the player won or lost
-            if (player.getHealth() <= 0) {
+            if (player.getFullHealth() <= 0) {
                 System.out.println("You have been defeated.");
                 gameRunning = false;
             } else {
@@ -68,6 +68,7 @@ public class Fight {
             System.out.println("You now have " + player.getXP() + " experience points.");
             player.checkLevelUp();
             //TODO End of battle things (drops)
+
         }
     }
 
@@ -131,7 +132,7 @@ public class Fight {
 
     public void mobTurn() {
         mob.attack(player);
-        System.out.println(player.getName() +" has " + player.getHealth() + "/" + player.getMaxHealth() + " left.");
+        System.out.println(player.getName() +" has " + player.getFullHealth() + "/" + player.getFullMaxHealth() + " left.");
 
     }
 

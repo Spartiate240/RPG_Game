@@ -34,20 +34,7 @@ public class Player extends Entity {
 
 
 
-    // Player-specific methods and overrides
-    @Override
-    public void attack(Entity target) {
-        // Player-specific attack logic
-        int damage = this.damage - target.getDefense();
-        if (damage < 0) {
-            damage = 0; // No damage if defense is higher than damage
-        }
-        target.setHealth(target.getHealth() - damage);
-        System.out.println(this.getName() + " attacks " + target.getName() + " for " + damage + " damage!");
-    }
 
-
-    // Getter and setter for playerInventory
     public Inventory getPlayerInventory() {
         return playerInventory;
     }
@@ -131,6 +118,75 @@ public class Player extends Entity {
     }
 
 
+    public int getDamage() {
+        return this.damage;
+    }
+
+    // Stats including all gear
+    public int getFullDamage() {
+        return this.getDamage() + this.getWeapon1().getDamage() + this.getWeapon2().getDamage() + this.getHead().getDamage()
+                + this.getChest().getDamage() + this.getLeg().getDamage() + this.getFeet().getDamage();
+    }
+
+    public int getFullDefense() {
+        return this.getDefense() + this.getWeapon1().getDefense() + this.getWeapon2().getDefense() + this.getHead().getHealth()
+                + this.getChest().getArmor() + this.getLeg().getArmor() + this.getFeet().getArmor();
+    }
+
+    public int getFullHealth() {
+        return this.getHealth() + this.getWeapon1().getDefense() +  this.getHead().getHealth() + this.getChest().getHealth() + 
+        this.getLeg().getHealth() + this.getFeet().getHealth();
+    }
+
+    public int getFullMaxHealth() {
+        return this.getFullHealth() + this.getWeapon1().getDefense() +  this.getHead().getHealth() + this.getChest().getHealth() + 
+        this.getLeg().getHealth() + this.getFeet().getHealth();
+    }
+
+
+    public Head getHead() {
+        return this.head;
+    }
+
+    public Leg getLeg() {
+        return this.leg;
+    }
+
+    public Feet getFeet() {
+        return this.feet;
+    }
+
+    public Chest getChest() {
+        return this.chest;
+    }
+
+    public Weapon getWeapon1() {
+        return this.weapon_1;
+    }
+
+    public Weapon getWeapon2() {
+        return this.weapon_2;
+    }
+
+    public Inventory getInventory() {
+        return this.playerInventory;
+    }
+
+
+
+
+    @Override
+    public void attack(Entity target) {
+        // Player-specific attack logic
+        int damage = this.getFullDamage() - target.getDefense();
+        if (damage < 0) {
+            damage = 0; // No damage if defense is higher than damage
+        }
+        target.setHealth(target.getHealth() - damage);
+        System.out.println(this.getName() + " attacks " + target.getName() + " for " + damage + " damage!");
+    }
+
+
 
     // String avoids having to change numbers everywhere
     public int heal(String amount) {
@@ -166,37 +222,6 @@ public class Player extends Entity {
             e.printStackTrace();
         }
 
-    }
-
-
-// TODO Afficher Profile
-
-    public Head getHead() {
-        return this.head;
-    }
-
-    public Leg getLeg() {
-        return this.leg;
-    }
-
-    public Feet getFeet() {
-        return this.feet;
-    }
-
-    public Chest getChest() {
-        return this.chest;
-    }
-
-    public Weapon getWeapon1() {
-        return this.weapon_1;
-    }
-
-    public Weapon getWeapon2() {
-        return this.weapon_2;
-    }
-
-    public Inventory getInventory() {
-        return this.playerInventory;
     }
 
 }

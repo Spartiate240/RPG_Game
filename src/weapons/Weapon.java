@@ -2,11 +2,13 @@ package weapons;
 import items.*;
 public abstract class Weapon extends Item {
     private int damage;
+    private int defense;
     private int level;
     private boolean heavy;
 
-    public Weapon(String name, String description, int damage, int level, int price, int cost, boolean heavy) {
-        super(name, description, price, cost, 1);
+    public Weapon(String name, String description, int damage,  int defense, int level, int price, int cost, boolean heavy, double drop_chance) {
+        super(name, description, price, cost, 1, drop_chance);
+        this.defense = defense;
         this.damage = damage;
         this.level = level;
         this.heavy = heavy;
@@ -18,6 +20,11 @@ public abstract class Weapon extends Item {
         return this.damage;
     }
 
+    public int getDefense() {
+        return this.defense;
+    }
+
+
     public int getLevel() {
         return this.level;
     }
@@ -27,13 +34,14 @@ public abstract class Weapon extends Item {
     }
 
 
-    // If addition of damage (buff stone or other, needs to be
-    // new_damage = this.getDamage() + added_value)
     public void setDamange(int new_damage) {
         this.damage = new_damage;
     }
 
-    // Same as setDamage
+    public void setDefense(int new_defense) {
+        this.defense = new_defense;
+    }
+
     public void setLevel(int new_level) {
         this.level = new_level;
     }

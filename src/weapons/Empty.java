@@ -4,6 +4,6 @@ package weapons;
 public class Empty extends Weapon {
     
     public Empty() {
-        super("Empty", "none", 0,0,0,0, false);
+        super("Empty", "none", 0,0,0,0,0, false,1);
     }
 }

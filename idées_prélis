@@ -1,0 +1,21 @@
+Classe perso:
+	stats
+    slots:
+	weapon 1
+	weapon 2
+	helm
+	chest
+	legs
+	boots
+
+
+abstract weapon
+	 helm
+	 chest
+	 legs
+	 boots
+	 
+
+class mob:
+	stats
+	(health, dmg)

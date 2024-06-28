@@ -19,7 +19,7 @@ public class MenuSystem {
             case 1:
                 Fight.FightLoop(player);
             case 2:
-                player.dispInventory();
+                player.getInventory().displayInventory();
             case 3:
                 break;
             // Handle other cases

@@ -8,11 +8,10 @@ ajouter une armure aux armes?
 + shield
 + warhammer
 
-tests simples (Junit?)
-Ou comme Allumettes?
+
 
 Drops d'ennemis, a faire avec Inventory, ils droppent UN SEUL de leurs trucs avec une proba x
 system de gain d'xp, qui change en fonction du niveau act et adv, dc à faire dans la classe Joueur dans la méthode battle
 
 
-Garder en mémoire l'avancement: écrire dans un fichier, comme ça quand on lance, on a juste à lire dans ce fichier (1 fichier/perso)
+Entrer un nom et Il prends ce fichier, et pareil pour la création de fichier

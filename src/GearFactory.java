@@ -1,7 +1,6 @@
 import chest.*;
 import feet.*;
 import head.*;
-import items.*;
 import legs.*;
 import weapons.*;
 
@@ -11,10 +10,14 @@ public class GearFactory {
     
     public static Weapon createWeapon(String weaponName) {
         switch (weaponName) {
+            case "Empty":
+                return new Empty();
             case "Damaged_Bow":
                 return new Damaged_Bow();
             case "Damaged_Sword":
                 return new Damaged_Sword();
+            case "Makeshift_Spear":
+                return new Makeshift_Spear();
             default:
                 throw new IllegalArgumentException("Unknown weapon: " + weaponName);
         }
