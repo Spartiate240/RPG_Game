@@ -60,15 +60,19 @@ public class Fight {
             double level_diff = mob.getLevel()/player.getLevel();
 
             // XP Gain funciton
-            double gained_xp = mob.getXp_drop()*Math.pow(level_diff, 1.1);
+            double gained_xp = mob.getXp_drop()*Math.pow(level_diff, 1.1); // x = y * diff^1.1
             int xp_gain_Int = (int) Math.round(gained_xp);
             int new_xp =  xp_gain_Int + player.getXP();
             player.setXP(new_xp);
             System.out.println("You gain " + gained_xp + " experience points.");
             System.out.println("You now have " + player.getXP() + " experience points.");
             player.checkLevelUp();
-            //TODO End of battle things (drops)
-
+            
+            //Drops
+            Inventory drops = mob.getDrop();
+            System.err.println("Items dropped:");
+            drops.displayInventory();
+            player.getInventory().addItems(drops);
         }
     }
 

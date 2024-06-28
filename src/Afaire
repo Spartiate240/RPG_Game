@@ -1,11 +1,9 @@
 AFAIRE
 
 
-system de gain d'xp, qui change en fonction du niveau act et adv, dc à faire dans la classe Joueur dans la méthode battle
-
+Classe Level_Creation qui doit ecrire dans le fichier voulu.
 Possibilité de ne pas faire que du combat (magasin, acces inventaire)
 
-getName/setName pour les equipements
 
 au moins 1 de chaque type d'armure
     + 1 dague

@@ -1,5 +1,5 @@
 
-public class Test1 {
+public class TestInventory {
 
     public static void main(String[] args) {
         Player player = new Player();

@@ -16,7 +16,17 @@ public class Inventory {
     }
 
     public void addItem(Item item) {
-        items.add(item);
+        if (contains(item)) {
+            item.setQuantity(item.getQuantity() + 1); // If item already in the inventory, adds 1 to quantity
+        } else {
+            items.add(item); // If item !in the inventory, adds it
+        }
+    }
+
+    public void addItems(Inventory addedItems) {
+        for (Item item : addedItems.getItems()) {
+            this.items.add(item);
+        }
     }
 
     public void delItem(Item item) {
@@ -48,26 +58,27 @@ public class Inventory {
     }
 
 
-    public static List<Item> getItems() {
+    public List<Item> getItems() {
         return Collections.unmodifiableList(items);
     }
 
 
     public void setQuantity(Item item, int newQuantity) {
-        for (Item item2 : items) {
-            if (item2 == item) {
-                item2.setQuantity(newQuantity);
-            }
-        }
+        item.setQuantity(newQuantity);
     }
 
+
     public int getQuantity(Item item) {
+        return item.getQuantity();
+    }
+
+    public boolean contains(Item item) {
         for (Item item2 : items) {
             if (item2 == item) {
-                return item2.getQuantity();
+                return true;
             }
         }
-        return 0;
+        return false;
     }
 
 }
