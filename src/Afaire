@@ -1,7 +1,6 @@
 AFAIRE
 
-
-Classe Level_Creation qui doit ecrire dans le fichier voulu.
+Peaceful class
 Possibilité de ne pas faire que du combat (magasin, acces inventaire)
 
 
@@ -13,5 +12,5 @@ au moins 1 de chaque type d'armure
     
     
     
- 
-Combining all gear equipments in 1 class?
+
+Combining all gear equipments in 1 class? (still keep subclasses per weapon type)
