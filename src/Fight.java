@@ -78,9 +78,6 @@ public class Fight {
 
 
 
-
-
-
     static void spawnNewMob() {
         random = new Random();
         int mobType = random.nextInt(2); 
@@ -131,6 +128,7 @@ public class Fight {
                 }
             }
         } while (!entreevalide);
+        scanner.close(); // TODO Delete if Fight loop doesn't end
     }
 
 
