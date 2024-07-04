@@ -1,5 +1,6 @@
 package merchants;
 
+import java.util.Scanner;
 import org.junit.runner.OrderWith;
 
 import mobs.Entity;
@@ -28,11 +29,58 @@ public class Merchant extends Entity {
         this.goods = newGoods;
     }
 
-    public Item buying(int gold, Item item) {
-        if (gold >= item.getCost()) {
-            return item;
+    public static Item buying(int gold, Item item) {
+        boolean valid = false;
+        if (gold < item.getCost()) {
+            return null;
         }
-        System.out.println("You do not have the necessary funds to buy this item.");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Buying this item will use up : " + item.getPrice() + " gold.\n");
+        System.out.println("Are you sure you want to buy it? \n\n");
+        System.out.println("-o Yes\n -n No");
+        String entreeString = scanner.nextLine();
+        while (!valid) {
+            if (entreeString.equals("o")) {
+                scanner.close();
+                valid = true;
+                System.out.println("You have confirmed the sale.");
+                return item;
+            } else if (entreeString.equals("n")) {
+                valid = true;
+                scanner.close();
+                System.out.println("You have abandonned the sale.");
+                return null;
+            }
+            System.out.println("Input non conforming to the choices.");
+        } // Should never be reached.
+        scanner.close();
         return null;
+    }
+        
+
+
+    public static Item selling(Item item) {
+        boolean valid = false; 
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Selling this item will reward you with : " + item.getPrice() + " gold.\n");
+        System.out.println("Are you sure you want to sell it? \n\n");
+        System.out.println("-o Yes\n -n No");
+        String entreeString = scanner.nextLine();
+        while (!valid) {
+            if (entreeString.equals("o")) {
+                scanner.close();
+                valid = true;
+                System.out.println("You have confirmed the sale.");
+                return item;
+            } else if (entreeString.equals("n")) {
+                valid = true;
+                scanner.close();
+                System.out.println("You have abandonned the sale.");
+                return null;
+            }
+            System.out.println("Input non conforming to the choices.");
+        } // Should never be reached.
+        scanner.close();
+        return null; 
     }
 }

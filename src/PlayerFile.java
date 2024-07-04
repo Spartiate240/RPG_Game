@@ -43,6 +43,8 @@ public class PlayerFile {
                             case "xp":
                                 player.setXP(Integer.parseInt(value));;
                                 break;
+                            case "gold":
+                                player.setGold(Integer.parseInt(value));
                             case "maxhealth":
                                 player.setMaxHealth(Integer.parseInt(value));;
                                 break;
@@ -52,7 +54,7 @@ public class PlayerFile {
                             case "defense":
                                 player.setDefense(Integer.parseInt(value));
                             break;
-                            case "head": // Index 6
+                            case "head": // Index 7
                                 Head headGear = GearFactory.createHead(value); // Assuming the factory method exists and creates a gear based on the string
                                 player.setHead(headGear);
                                 break;
@@ -68,7 +70,7 @@ public class PlayerFile {
                                Chest chestGear = GearFactory.createChest(value);
                                 player.setChest(chestGear);
                                 break;
-                            case "weapon_1": // Index 10
+                            case "weapon_1": // Index 11
                                 Weapon weapon1 = GearFactory.createWeapon(value);
                                 player.setWeapon(weapon1, 1);
                                 break;
@@ -120,7 +122,9 @@ public static void createFile(Player player, String filePath) {
 
         // Write level and xp
         bw.write("level: " + player.getLevel() + "\n");
-        bw.write("XP: " + player.getXP() + "\n\n");
+        bw.write("XP: " + player.getXP() + "\n");
+        bw.write("gold : " + player.getGold() + "\n\n");
+
 
         // Write player stats
         bw.write("Stats\n\n");
@@ -135,8 +139,7 @@ public static void createFile(Player player, String filePath) {
         bw.write("Feet : " + player.getFeet().getName() + "\n");
         bw.write("Chest : " + player.getChest().getName() + "\n");
         bw.write("weapon_1 : " + player.getWeapon1().getName() + "\n");
-        bw.write("weapon_2 : " + player.getWeapon2().getName() + "\n");
-        bw.write("gold : " + player.getGold() + "\n");
+        bw.write("weapon_2 : " + player.getWeapon2().getName() + "\n\n");
 
         // Write inventory
         bw.write("Inventory :\n");

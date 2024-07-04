@@ -2,7 +2,7 @@ Username: XXX
 
 level:  12
 XP : 10
-
+gold : 50
 Stats
 
 MaxHealth : 10
