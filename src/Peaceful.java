@@ -28,4 +28,8 @@ public class Peaceful {
         }
         scanner.close();
     }
+
+    public void trading() {
+        
+    }
 }

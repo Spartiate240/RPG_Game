@@ -5,7 +5,7 @@ public class TestGame {
 
 
     public static void main(String[] args) {
-        player = new Player("Test", 100, 100, 10, 3, 1,0, null);
+        player = new Player("Test", 100, 100, 10, 3, 1,0, null, 0);
         Fight.FightLoop(player);
     }
 }

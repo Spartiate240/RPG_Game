@@ -136,6 +136,7 @@ public static void createFile(Player player, String filePath) {
         bw.write("Chest : " + player.getChest().getName() + "\n");
         bw.write("weapon_1 : " + player.getWeapon1().getName() + "\n");
         bw.write("weapon_2 : " + player.getWeapon2().getName() + "\n");
+        bw.write("gold : " + player.getGold() + "\n");
 
         // Write inventory
         bw.write("Inventory :\n");

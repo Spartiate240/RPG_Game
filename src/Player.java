@@ -19,17 +19,20 @@ public class Player extends Entity {
     private Chest chest;
     private Weapon weapon_1;
     private Weapon weapon_2;
+    private int gold;
 
-    public Player(String name, int health, int maxHealth, int defense, int damage, int level, int experience_pts, Inventory playerInventory) {
+    public Player(String name, int health, int maxHealth, int defense, int damage, int level, int experience_pts, Inventory playerInventory, int gold) {
         super(name, health, maxHealth, defense, damage, level);
         this.experience_pts = experience_pts;
         this.playerInventory = playerInventory;
+        this.gold = gold;
     }
 
     public Player() {
         super("None", 0, 0, 0, 0, 0);
         this.experience_pts = 0;
         this.playerInventory = new Inventory();
+        this.gold = 0;
     }
 
 
@@ -117,6 +120,11 @@ public class Player extends Entity {
         }
     }
 
+    public void setGold(int newGold) {
+        this.gold = newGold;
+    }
+
+
 
     public int getDamage() {
         return this.damage;
@@ -172,7 +180,9 @@ public class Player extends Entity {
         return this.playerInventory;
     }
 
-
+    public int getGold() {
+        return this.gold;
+    }
 
 
     @Override

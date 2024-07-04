@@ -1,5 +1,4 @@
 // Used to create level threshold
-// TODO Adjust so that it writes in the Levels file
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,7 +11,7 @@ public class Level_Creation {
     private static int levelMax = 20;
 
     public static void Levels() {
-        String filePath = "/home/pierre/Documents/Privé/ProjetJeuRPG/src/Levels";
+        String filePath = "/home/pierre/Documentsgit a/Privé/ProjetJeuRPG/src/Levels";
 
         try {
             File file = new File(filePath);
