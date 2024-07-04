@@ -1,4 +1,3 @@
-
 public class TestGame {
     static Player player;
 

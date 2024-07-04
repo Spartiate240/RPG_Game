@@ -17,7 +17,7 @@ public class PlayerFile {
 
     public static Player createPlayer(String argsString) {
         // Path to the player file
-        String filePath = "/home/pierre/Documents/Privé/ProjetJeuRPG/src/PlayerFiles/Example.txt";
+        String filePath = "/home/pierre/Documents/Privé/ProjetJeuRPG/src/PlayerFiles/" + argsString + ".txt";
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;

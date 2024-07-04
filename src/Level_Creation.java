@@ -8,10 +8,10 @@ import java.io.IOException;
 public class Level_Creation {
     private static int x = 100;
     private static double y = 1.5;
-    private static int levelMax = 20;
+    private static int levelMax = 100;
 
     public static void Levels() {
-        String filePath = "/home/pierre/Documentsgit a/Privé/ProjetJeuRPG/src/Levels";
+        String filePath = "/home/pierre/Documents/Privé/ProjetJeuRPG/src/Levels";
 
         try {
             File file = new File(filePath);
@@ -26,7 +26,7 @@ public class Level_Creation {
 
             double threshold = 5;
             int current_level = 0;
-            for (int i = 1; i < levelMax; i++) {
+            for (int i = 1; i < levelMax + 1; i++) {
                 threshold = x * Math.round(Math.pow(current_level, y));
                 int threshold_for_next_level = (int) threshold;
                 System.out.println("Level " + i + " : " + threshold_for_next_level);

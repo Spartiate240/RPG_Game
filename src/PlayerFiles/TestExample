@@ -1,6 +1,6 @@
 Username: XXX
 
-level: 13
+level: 12
 XP: 10
 
 Stats
@@ -17,5 +17,6 @@ Feet : Worn_Down_Sandals
 Chest : Worn_Down_Chestplate
 weapon_1 : Damaged_Sword
 weapon_2 : Damaged_Sword
+gold : 0
 Inventory :
-Small Potion x2, Medium Potion x1, 
+Small Health Potion x2, Medium Health Potion x1, 
