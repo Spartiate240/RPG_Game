@@ -1,7 +1,6 @@
 package merchants;
 
 import java.util.Scanner;
-import org.junit.runner.OrderWith;
 
 import mobs.Entity;
 import mobs.Inventory;
@@ -35,24 +34,24 @@ public class Merchant extends Entity {
             return null;
         }
         Scanner scanner = new Scanner(System.in);
+        System.out.println("You are attempting to buy a " + item.getName());
         System.out.println("Buying this item will use up : " + item.getPrice() + " gold.\n");
         System.out.println("Are you sure you want to buy it? \n\n");
         System.out.println("-o Yes\n -n No");
-        String entreeString = scanner.nextLine();
-        while (!valid) {
+        do {
+            String entreeString = scanner.nextLine();
+
             if (entreeString.equals("o")) {
-                scanner.close();
                 valid = true;
                 System.out.println("You have confirmed the sale.");
                 return item;
             } else if (entreeString.equals("n")) {
                 valid = true;
-                scanner.close();
                 System.out.println("You have abandonned the sale.");
                 return null;
             }
             System.out.println("Input non conforming to the choices.");
-        } // Should never be reached.
+        } while (!valid); // Should never be reached.
         scanner.close();
         return null;
     }

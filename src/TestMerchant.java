@@ -7,9 +7,11 @@ public class TestMerchant {
     static Merchant merchant;
 
     public static void main(String[] args) {
+        Inventory inventory = new Inventory();
         player = new Player("Test", 100, 100, 10, 3, 1,0, null, 10);
-        Inventory inventory;
         Item SmallHealthPotion;
+
+        SmallHealthPotion = ItemFactory.createItem("SmallHealthPotion");
         inventory.addItem(SmallHealthPotion);
         Merchant merchant = new Merchant("Test_Merchant", 0, 0, 0, 0, 0, inventory);
         

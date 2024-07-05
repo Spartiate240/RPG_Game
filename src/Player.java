@@ -11,6 +11,7 @@ import java.util.Map;
 import java.io.IOException;
 
 public class Player extends Entity {
+    private int fullMaxHealth;
     private int experience_pts;
     private Inventory playerInventory;
     private Head head;
@@ -26,6 +27,7 @@ public class Player extends Entity {
         this.experience_pts = experience_pts;
         this.playerInventory = playerInventory;
         this.gold = gold;
+        this.fullMaxHealth = maxHealth; // Adding all other item health after, so that it can be done at appropriate time.
     }
 
     public Player() {
@@ -125,30 +127,61 @@ public class Player extends Entity {
     }
 
 
-
     public int getDamage() {
         return this.damage;
     }
 
     // Stats including all gear
     public int getFullDamage() {
-        return this.getDamage() + this.getWeapon1().getDamage() + this.getWeapon2().getDamage() + this.getHead().getDamage()
-                + this.getChest().getDamage() + this.getLeg().getDamage() + this.getFeet().getDamage();
+        int fulldmg = this.getDamage();
+        if (getWeapon1()!= null) {
+            fulldmg += this.getWeapon1().getDamage();
+        }
+        if (getWeapon2()!= null) {
+            fulldmg += this.getWeapon2().getDamage();
+        }
+        if (getHead()!= null) {
+            fulldmg += this.getHead().getDamage();
+        }
+        if (getChest() != null) {
+            fulldmg += this.getChest().getDamage();
+        }
+        if (getLeg() != null) {
+            this.getLeg().getDamage();
+        }
+        if (getFeet() != null) {
+            this.getFeet().getDamage();
+        }
+        return fulldmg;
     }
 
-    public int getFullDefense() {
-        return this.getDefense() + this.getWeapon1().getDefense() + this.getWeapon2().getDefense() + this.getHead().getHealth()
-                + this.getChest().getArmor() + this.getLeg().getArmor() + this.getFeet().getArmor();
+
+    public void setFullHealth(int newFullHealth) {
+        this.fullMaxHealth = newFullHealth;
     }
 
     public int getFullHealth() {
-        return this.getHealth() + this.getWeapon1().getDefense() +  this.getHead().getHealth() + this.getChest().getHealth() + 
-        this.getLeg().getHealth() + this.getFeet().getHealth();
+        int fullHealth = this.getMaxHealth();
+
+        return fullHealth;
     }
 
     public int getFullMaxHealth() {
-        return this.getFullHealth() + this.getWeapon1().getDefense() +  this.getHead().getHealth() + this.getChest().getHealth() + 
-        this.getLeg().getHealth() + this.getFeet().getHealth();
+        int fullMaxHealth = this.getMaxHealth();
+
+        if (getHead()!= null) {
+            fullMaxHealth += this.getHead().getHealth();
+        }
+        if (getChest() != null) {
+            fullMaxHealth += this.getChest().getHealth();
+        }
+        if (getLeg() != null) {
+            fullMaxHealth += this.getLeg().getHealth();
+        }
+        if (getFeet() != null) {
+            fullMaxHealth += this.getFeet().getHealth();
+        }
+        return fullMaxHealth;
     }
 
 
