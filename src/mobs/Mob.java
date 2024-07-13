@@ -18,9 +18,10 @@ public class Mob extends Entity {
     private int xp_drop;
 
 
-    public Mob(String name, int health, int maxHealth, int defense, int damage, int level, int xp_drop) {
+    public Mob(String name, int health, int maxHealth, int defense, int damage, int level, int xp_drop, Inventory drop) {
         super(name, health, maxHealth, defense, damage, level);
         this.xp_drop = xp_drop;
+        this.drop = drop;
     }
 
     // Default attack behavior for all mobs
@@ -59,7 +60,6 @@ public class Mob extends Entity {
                 drops.addItem(item);
             }
         }
-
         return drops;
     }
 }

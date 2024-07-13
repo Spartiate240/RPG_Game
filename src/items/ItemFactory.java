@@ -1,5 +1,4 @@
-import items.*;
-
+package items;
 public class ItemFactory {
  
     
@@ -11,6 +10,8 @@ public class ItemFactory {
                     return new SmallHealthPotion();
                 case "MediumHealthPotion":
                     return new MediumHealthPotion();
+                case "Spider Silk":
+                    return new Spider_Silk();
                 default:
                     throw new IllegalArgumentException("Unknown item: " + itemName);
             }
