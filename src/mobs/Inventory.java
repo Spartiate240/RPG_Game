@@ -37,6 +37,9 @@ public class Inventory {
     public void displayInventory() {
         Iterator<Item> iterator = items.iterator();
         System.out.println("Inventory: ");
+        if (iterator.next() == null) {
+            System.out.println("Empty");
+        }
         while (iterator.hasNext()) {
             Item currentItem = iterator.next();
             System.out.println("Item: " +currentItem.getName() +", quantity: " + currentItem.getQuantity());
