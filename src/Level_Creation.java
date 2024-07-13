@@ -11,7 +11,8 @@ public class Level_Creation {
     private static int levelMax = 100;
 
     public static void Levels() {
-        String filePath = "/home/pierre/Documents/Privé/ProjetJeuRPG/src/Levels";
+        String filePath = "/home/pierre/Documents/Privé/ProjetJeuRPG/src/Levels.txt";
+        System.out.println(filePath);
 
         try {
             File file = new File(filePath);

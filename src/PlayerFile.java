@@ -21,7 +21,7 @@ public class PlayerFile {
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
-                // Creating player
+            // Creating player
             Player player = new Player();
 
 
@@ -55,7 +55,7 @@ public class PlayerFile {
                                 player.setDefense(Integer.parseInt(value));
                             break;
                             case "head": // Index 7
-                                Head headGear = GearFactory.createHead(value); // Assuming the factory method exists and creates a gear based on the string
+                                Head headGear = GearFactory.createHead(value);
                                 player.setHead(headGear);
                                 break;
                             case "leg":
@@ -102,57 +102,56 @@ public class PlayerFile {
         }
     }
 
-public static void createFile(Player player, String filePath) {
+    public static void createFile(Player player, String filePath) {
 
-    try {
-        File file = new File(filePath);
-        if (file.createNewFile()) {
-          System.out.println("File created: " + file.getName());
-        } else {
-          System.out.println("File updated sucessfully.");
+        try {
+            File file = new File(filePath);
+            if (file.createNewFile()) {
+                System.out.println("File created: " + file.getName());
+            } else {
+              System.out.println("File updated sucessfully.");
+            }
+
+
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+
+
+
+            // Write player username
+            bw.write("Username: " + player.getName() + "\n\n");
+
+            // Write level and xp
+            bw.write("level: " + player.getLevel() + "\n");
+            bw.write("XP: " + player.getXP() + "\n");
+            bw.write("gold : " + player.getGold() + "\n\n");
+
+
+            // Write player stats
+            bw.write("Stats\n\n");
+            bw.write("MaxHealth : " + player.getMaxHealth() + "\n");
+            bw.write("damage : " + player.getDamage() + "\n");
+            bw.write("Defense : " + player.getDefense() + "\n\n");
+
+            // Write equipment
+            bw.write("Equipment\n\n");
+            bw.write("Head : " + player.getHead().getName() + "\n");
+            bw.write("Leg : " + player.getLeg().getName() + "\n");
+            bw.write("Feet : " + player.getFeet().getName() + "\n");
+            bw.write("Chest : " + player.getChest().getName() + "\n");
+            bw.write("weapon_1 : " + player.getWeapon1().getName() + "\n");
+            bw.write("weapon_2 : " + player.getWeapon2().getName() + "\n\n");
+
+            // Write inventory
+            bw.write("Inventory :\n");
+            for (Item item : player.getInventory().getItems()) {
+                bw.write(item.getName() + " x" + player.getInventory().getQuantity(item) + ", ");
+            }
+            // Remove trailing comma and space before closing tag
+            bw.write("\n");
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error writing file.");
         }
-
-
-        BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-
-
-
-        // Write player username
-        bw.write("Username: " + player.getName() + "\n\n");
-
-        // Write level and xp
-        bw.write("level: " + player.getLevel() + "\n");
-        bw.write("XP: " + player.getXP() + "\n");
-        bw.write("gold : " + player.getGold() + "\n\n");
-
-
-        // Write player stats
-        bw.write("Stats\n\n");
-        bw.write("MaxHealth : " + player.getMaxHealth() + "\n");
-        bw.write("damage : " + player.getDamage() + "\n");
-        bw.write("Defense : " + player.getDefense() + "\n\n");
-
-        // Write equipment
-        bw.write("Equipment\n\n");
-        bw.write("Head : " + player.getHead().getName() + "\n");
-        bw.write("Leg : " + player.getLeg().getName() + "\n");
-        bw.write("Feet : " + player.getFeet().getName() + "\n");
-        bw.write("Chest : " + player.getChest().getName() + "\n");
-        bw.write("weapon_1 : " + player.getWeapon1().getName() + "\n");
-        bw.write("weapon_2 : " + player.getWeapon2().getName() + "\n\n");
-
-        // Write inventory
-        bw.write("Inventory :\n");
-        for (Item item : player.getInventory().getItems()) {
-            bw.write(item.getName() + " x" + player.getInventory().getQuantity(item) + ", ");
-        }
-        // Remove trailing comma and space before closing tag
-        bw.write("\n");
-        bw.close();
-    } catch (IOException e) {
-        e.printStackTrace();
-        System.out.println("Error writing file.");
     }
-}
-
 }

@@ -35,13 +35,13 @@ public class Merchant extends Entity {
         }
         Scanner scanner = new Scanner(System.in);
         System.out.println("You are attempting to buy a " + item.getName());
-        System.out.println("Buying this item will use up : " + item.getPrice() + " gold.\n");
+        System.out.println("Buying this " + item.getName() + " will use up : " + item.getCost() + " gold.\n");
         System.out.println("Are you sure you want to buy it? \n\n");
-        System.out.println("-o Yes\n -n No");
+        System.out.println("-y Yes\n-n No");
         do {
             String entreeString = scanner.nextLine();
 
-            if (entreeString.equals("o")) {
+            if (entreeString.equals("y")) {
                 valid = true;
                 System.out.println("You have confirmed the sale.");
                 return item;
@@ -58,18 +58,19 @@ public class Merchant extends Entity {
         
 
 
-    public static Item selling(Item item) {
+    public static Item selling(Inventory selling, Item item) {
         boolean valid = false; 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Selling this item will reward you with : " + item.getPrice() + " gold.\n");
+        System.out.println("Selling this " + item.getName() + " will reward you with : " + item.getPrice() + " gold.\n");
         System.out.println("Are you sure you want to sell it? \n\n");
-        System.out.println("-o Yes\n -n No");
+        System.out.println("-y Yes\n-n No");
         String entreeString = scanner.nextLine();
         while (!valid) {
-            if (entreeString.equals("o")) {
+            if (entreeString.equals("y")) {
                 scanner.close();
                 valid = true;
                 System.out.println("You have confirmed the sale.");
+                selling.delItem(item);
                 return item;
             } else if (entreeString.equals("n")) {
                 valid = true;

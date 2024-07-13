@@ -14,7 +14,9 @@ public class LevelChecker {
             while ((line = br.readLine())!= null) {
                 String[] parts = line.split(":");
                 if (parts.length >= 2) {
-                    int level = Integer.parseInt(parts[0].trim());
+                    String[] levelInt = line.split(" ");
+                    // TODO Isoler le int du lvl pour le passer en int.
+                    int level = Integer.parseInt(levelInt[1].trim());
                     int xp = Integer.parseInt(parts[1].trim());
                     levelXpThresholds.put(level, xp);
                 }

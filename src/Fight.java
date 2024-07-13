@@ -128,7 +128,7 @@ public class Fight {
                 }
             }
         } while (!entreevalide);
-        scanner.close(); // TODO Delete if Fight loop doesn't end
+        //scanner.close(); // TODO Delete if Fight loop doesn't end
     }
 
 
