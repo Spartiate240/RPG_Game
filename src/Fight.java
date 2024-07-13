@@ -50,7 +50,7 @@ public class Fight {
                 mobTurn();
                 turn = true;
             }
-            if( checkEnd()) {
+            if(checkEnd()) {
                 end = true;
             }
         }
@@ -100,9 +100,11 @@ public class Fight {
             System.out.println("What do you want to do?");
             System.out.println("1- Attack");
             System.out.println("2- Heal");
+            System.out.println("q- Quit");
             String entreeString = scanString.nextLine();
             if (entreeString.equals("q")) {
                 System.out.println("Leaving the fight.");
+                MenuSystem.displayMenu();
                 // TODO Gestion quitter combat
             } else {
                 try {
@@ -128,7 +130,7 @@ public class Fight {
                 }
             }
         } while (!entreevalide);
-        //scanner.close(); // TODO Delete if Fight loop doesn't end
+        //scanner.close(); // Delete if Fight loop doesn't end
     }
 
 
@@ -145,7 +147,4 @@ public class Fight {
             return false;
         }
     }
-
-
-
 }
