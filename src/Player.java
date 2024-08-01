@@ -7,8 +7,9 @@ import feet.*;
 import chest.*;
 import legs.*;
 
-import java.util.Map;
 import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 public class Player extends Entity {
     private int fullMaxHealth;
@@ -245,26 +246,44 @@ public class Player extends Entity {
     }
 
     public void checkLevelUp() {
-        LevelChecker levelChecker = new LevelChecker();
-        Map<Integer, Integer> levelXpThresholds;
-        try {
-            levelXpThresholds = levelChecker.loadLevelXpThresholds();
-
-            int currentLevel = this.level; // Assuming 'level' is a member variable of Player
-            int currentExperience = this.experience_pts; // Assuming 'xp' is a member variable of Player
+  
+            int currentLevel = this.level;
+            int currentExperience = this.experience_pts;
 
             // Get the XP required for the next level
-            int nextLevelXp = levelXpThresholds.getOrDefault(currentLevel + 1, 0);
+            int LevelXp = getRequiredXP(currentLevel);
 
             // Check if the player has enough XP to level up
-            if( currentExperience >= nextLevelXp) {
+            if( currentExperience >= LevelXp) {
                 this.setLevel(currentLevel + 1);
-                this.setXP(currentExperience -nextLevelXp );
+                this.setXP(currentExperience - LevelXp );
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
     }
+
+
+
+
+    public static int getRequiredXP(int level) {
+            try (BufferedReader br = new BufferedReader(new FileReader("Levels.txt"))) {
+                String line;
+                int lineNumber = 0;
+                while ((line = br.readLine()) != null) {
+                    lineNumber++;
+                    if (lineNumber == level) {
+                        String[] parts = line.split(": ");
+                        if (parts.length > 1) {
+                            String xpString = parts[1];
+                            return Integer.parseInt(xpString);
+                        } else {
+                            System.err.println("Invalid line format for level " + level + ": " + line);
+                        }
+                    }
+                }
+            }
+            catch (IOException e) {
+            }
+        return 9999999;
+        }
 
 }

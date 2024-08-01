@@ -68,8 +68,14 @@ public class Fight {
             // Drops
             Inventory drops = mob.getDrop();
             System.err.println("Items dropped:");
-            drops.displayInventory();
-            player.getInventory().addItems(drops);
+            if (drops == null) {
+                System.out.println("No items dropped");
+            } else {
+                drops.displayInventory();
+                if (player.getInventory() != null) {
+                    player.getInventory().addItems(drops);
+                }
+            }
         }
     }
 

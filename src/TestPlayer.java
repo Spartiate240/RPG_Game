@@ -5,7 +5,7 @@ public class TestPlayer {
 
     @Test
     public void testCreatePlayerFromTxt() {
-        Player player = PlayerFile.createPlayer("src/PlayerFiles/Example.txt");
+        Player player = PlayerFile.createPlayer("Example");
         // Verify player attributes
         assertEquals("XXX", player.getName());
         assertEquals(12, player.getLevel());
@@ -27,13 +27,17 @@ public class TestPlayer {
         assertEquals("Small Health Potion", player.getInventory().get(0).getName());
         assertEquals(2, player.getInventory().get(0).getQuantity());
 
+    }
 
-
-        // Verify level up
-        player.setXP(3001);
+        // Verify level up    
+    @Test
+    public void testCheckLvlUP() {
+        Player player = PlayerFile.createPlayer("Example");
+        player.setXP(3601);
+        assertEquals(3601, player.getXP(), 0);
         player.checkLevelUp();
-        
-        assertEquals(2, player.getLevel());
+    
         assertEquals(1, player.getXP());
+        assertEquals(13, player.getLevel());
     }
 }

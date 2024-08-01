@@ -1,19 +1,7 @@
 AFAIRE
-Add attribute to Items: "type" which holds the type of the item.
-Peaceful class for merchants?
-Possibilité de ne pas faire que du combat (magasin, acces inventaire)
-Finish quitting option in the middle of a fight // NullPointerException to handle
-Mobs drops to do
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ENSURE THE LOOP OF FIGHT CONTINUES
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Ensure Quitting doesn't trigger a NullPointerException
 
-au moins 1 de chaque type d'armure
-    + 1 dague
-    + shield
-    + warhammer
-
-
-Combining all gear equipments in 1 class? (still keep subclasses per weapon type)

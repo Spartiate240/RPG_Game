@@ -27,7 +27,7 @@ public class Mob extends Entity {
     // Default attack behavior for all mobs
     @Override
     public void attack(Entity target) {
-        int damage = this.damage - target.getDefense(); //TODO Change so that it can take the getFullDefense()
+        int damage = this.damage - target.getDefense();
         if (damage < 0) {
             damage = 0; // No damage if defense is higher than damage
         }
