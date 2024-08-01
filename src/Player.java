@@ -128,10 +128,6 @@ public class Player extends Entity {
     }
 
 
-    public int getDamage() {
-        return this.damage;
-    }
-
     // Stats including all gear
     public int getFullDamage() {
         int fulldmg = this.getDamage();
@@ -257,6 +253,11 @@ public class Player extends Entity {
             if( currentExperience >= LevelXp) {
                 this.setLevel(currentLevel + 1);
                 this.setXP(currentExperience - LevelXp );
+                
+                // Increases stats
+                setDamage(getDamage() + 2);
+                setDefense(getDefense() + 2);
+                setHealth(getHealth() + 2);;
             }
 
     }

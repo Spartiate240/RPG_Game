@@ -26,7 +26,6 @@ public class TestPlayer {
         assertEquals(2, player.getInventory().size());
         assertEquals("Small Health Potion", player.getInventory().get(0).getName());
         assertEquals(2, player.getInventory().get(0).getQuantity());
-
     }
 
         // Verify level up    
