@@ -1,0 +1,21 @@
+Username: XXX
+
+level:  12
+XP : 10
+gold : 50
+Stats
+
+MaxHealth : 10
+damage : 10
+Defense : 10
+
+Equipment
+
+Head : Worn_Down_Cap
+Leg : Torn_Leggings
+Feet : Worn_Down_Sandals
+Chest : Worn_Down_Chestplate
+weapon_1 : Damaged_Sword
+weapon_2 : Damaged_Sword
+
+Inventory : SmallHealthPotion x2, MediumHealthPotion x1
