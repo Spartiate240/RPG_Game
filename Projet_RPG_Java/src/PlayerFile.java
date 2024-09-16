@@ -19,6 +19,11 @@ public class PlayerFile {
         // Path to the player file
         String filePath = "/home/pierre/Documents/Privé/ProjetJeuRPG/src/PlayerFiles/" + argsString + ".txt";
 
+
+        /////////TODO : Add a check to see if the file exists. If it doesn't, create a new player file.
+
+
+
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             // Creating player
