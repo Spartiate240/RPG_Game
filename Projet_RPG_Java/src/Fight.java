@@ -101,7 +101,8 @@ public class Fight {
         do {
             System.out.println("What do you want to do?");
             System.out.println("1- Attack");
-            System.out.println("2- Heal");
+            System.out.println("2- Small Heal");
+            System.out.println("3- Medium Heal");
             System.out.println("q- Quit");
             String input = scanString.nextLine();
             if (input.equals("q")) {
@@ -118,6 +119,7 @@ public class Fight {
                             validInput = true;
                             break;
                         case 2:
+                        //TODO Check if player has healing potions
                             player.heal("small");
                             validInput = true;
                             break;

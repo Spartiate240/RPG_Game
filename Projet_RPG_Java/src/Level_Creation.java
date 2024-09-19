@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class Level_Creation {
     private static int x = 100;
-    private static double y = 1.5;
+    private static double y = 1.8;
     private static int levelMax = 100;
 
     public static void Levels() {
