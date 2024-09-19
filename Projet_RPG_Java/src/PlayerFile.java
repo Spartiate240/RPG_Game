@@ -17,7 +17,8 @@ public class PlayerFile {
 
     public static Player createPlayer(String argsString) {
         // Path to the player file
-        String filePath = "/home/pierre/Documents/Privé/ProjetJeuRPG/src/PlayerFiles/" + argsString + ".txt";
+        System.out.println("Looking for player file: " + argsString);
+        String filePath = "/home/pierre/Documents/Privé/Projets_Persos/Projet_RPG_Java/src/PlayerFiles/" + argsString + ".txt";
 
 
         /////////TODO : Add a check to see if the file exists. If it doesn't, create a new player file.

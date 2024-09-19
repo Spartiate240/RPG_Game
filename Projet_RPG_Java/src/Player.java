@@ -29,6 +29,7 @@ public class Player extends Entity {
         this.playerInventory = playerInventory;
         this.gold = gold;
         this.fullMaxHealth = maxHealth; // Adding all other item health after, so that it can be done at appropriate time.
+        
     }
 
     public Player() {
